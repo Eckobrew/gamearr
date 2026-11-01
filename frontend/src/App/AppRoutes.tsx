@@ -43,10 +43,11 @@ function AppRoutes() {
   return (
     <Switch>
       {/*
-        Movies
+        Games
       */}
 
       <Route exact={true} path="/" component={MovieIndex} />
+      <Route path="/games" component={MovieIndex} />
 
       {window.Radarr.urlBase && (
         <Route
@@ -67,6 +68,7 @@ function AppRoutes() {
 
       <Route path="/add/discover" component={DiscoverMovieConnector} />
 
+      <Route path="/game/:titleSlug" component={MovieDetailsPage} />
       <Route path="/movie/:titleSlug" component={MovieDetailsPage} />
 
       {/*

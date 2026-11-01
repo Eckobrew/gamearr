@@ -7,7 +7,7 @@ const initializeUrl = `${
 }/initialize.json?t=${Date.now()}`;
 const response = await fetch(initializeUrl);
 
-window.Radarr = await response.json();
+window.Gamearr = window.Radarr = await response.json();
 
 /* eslint-disable no-undef, @typescript-eslint/ban-ts-comment */
 // @ts-ignore 2304
