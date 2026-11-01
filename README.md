@@ -1,7 +1,7 @@
 # Gamearr — Video Game PVR & Collection Manager
 
 [![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/eckobrew/gamearr)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](docker-compose.yml)
 
 **Gamearr** is an `*arr`-style automated PVR and game library manager for Usenet and BitTorrent users, forked and adapted from Radarr. It monitors RSS feeds and indexers for wanted PC and console games, interfaces with download clients (like qBittorrent), and organizes, renames, and manages your game collection.
