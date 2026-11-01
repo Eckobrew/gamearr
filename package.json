@@ -1,7 +1,7 @@
 {
-  "name": "radarr",
+  "name": "gamearr",
   "version": "1.0.0",
-  "description": "Radarr is a PVR for Usenet and BitTorrent users",
+  "description": "Gamearr is a PVR for video games for Usenet and BitTorrent users",
   "scripts": {
     "build": "webpack --config ./frontend/build/webpack.config.js",
     "prebuild": "yarn clean",

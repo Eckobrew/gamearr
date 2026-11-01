@@ -15,51 +15,51 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{0F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{4EACDBBC-BCD7-4765-A57B-3E08331E4749}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Api.V3", "Radarr.Api.V3\Radarr.Api.V3.csproj", "{D1D48E1D-9EEB-470B-992C-3954F90FB014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Api.V3", "Gamearr.Api.V3\Gamearr.Api.V3.csproj", "{D1D48E1D-9EEB-470B-992C-3954F90FB014}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Http", "Radarr.Http\Radarr.Http.csproj", "{F8A02FD4-A7A4-40D0-BB81-6319105A3302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Http", "Gamearr.Http\Gamearr.Http.csproj", "{F8A02FD4-A7A4-40D0-BB81-6319105A3302}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Api.Test", "NzbDrone.Api.Test\Radarr.Api.Test.csproj", "{E2EA47B1-6996-417D-A6EC-28C4F202715C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Api.Test", "NzbDrone.Api.Test\Gamearr.Api.Test.csproj", "{E2EA47B1-6996-417D-A6EC-28C4F202715C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Automation.Test", "NzbDrone.Automation.Test\Radarr.Automation.Test.csproj", "{2356C987-F992-4084-9DA2-5DAD1DA35E85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Automation.Test", "NzbDrone.Automation.Test\Gamearr.Automation.Test.csproj", "{2356C987-F992-4084-9DA2-5DAD1DA35E85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Common.Test", "NzbDrone.Common.Test\Radarr.Common.Test.csproj", "{A628FEA4-75CC-4039-8823-27258C55D2BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Common.Test", "NzbDrone.Common.Test\Gamearr.Common.Test.csproj", "{A628FEA4-75CC-4039-8823-27258C55D2BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Common", "NzbDrone.Common\Radarr.Common.csproj", "{74BF1D46-710C-42C1-82DD-34B42C58F843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Common", "NzbDrone.Common\Gamearr.Common.csproj", "{74BF1D46-710C-42C1-82DD-34B42C58F843}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Console", "NzbDrone.Console\Radarr.Console.csproj", "{AEA9EE9A-19BF-45CB-93D9-52CA443FD313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Console", "NzbDrone.Console\Gamearr.Console.csproj", "{AEA9EE9A-19BF-45CB-93D9-52CA443FD313}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Core.Test", "NzbDrone.Core.Test\Radarr.Core.Test.csproj", "{04ECC74F-C340-4987-863E-757FB62D27C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Core.Test", "NzbDrone.Core.Test\Gamearr.Core.Test.csproj", "{04ECC74F-C340-4987-863E-757FB62D27C9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Core", "NzbDrone.Core\Radarr.Core.csproj", "{82EBE37B-E3A7-4365-9B06-FA647BCC7AF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Core", "NzbDrone.Core\Gamearr.Core.csproj", "{82EBE37B-E3A7-4365-9B06-FA647BCC7AF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Host.Test", "NzbDrone.Host.Test\Radarr.Host.Test.csproj", "{6D4DE6D5-9594-4AE4-85E0-41C7FFCCED92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Host.Test", "NzbDrone.Host.Test\Gamearr.Host.Test.csproj", "{6D4DE6D5-9594-4AE4-85E0-41C7FFCCED92}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Host", "NzbDrone.Host\Radarr.Host.csproj", "{B6913970-FB88-4F6F-83F9-00728218E3FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Host", "NzbDrone.Host\Gamearr.Host.csproj", "{B6913970-FB88-4F6F-83F9-00728218E3FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Integration.Test", "NzbDrone.Integration.Test\Radarr.Integration.Test.csproj", "{6D5618FB-45B9-44AE-BF99-8EF37519CB30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Integration.Test", "NzbDrone.Integration.Test\Gamearr.Integration.Test.csproj", "{6D5618FB-45B9-44AE-BF99-8EF37519CB30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Libraries.Test", "NzbDrone.Libraries.Test\Radarr.Libraries.Test.csproj", "{1969394D-3181-404F-8E2C-E3E71A5BAD30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Libraries.Test", "NzbDrone.Libraries.Test\Gamearr.Libraries.Test.csproj", "{1969394D-3181-404F-8E2C-E3E71A5BAD30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Mono.Test", "NzbDrone.Mono.Test\Radarr.Mono.Test.csproj", "{CCE9ABBC-96BA-425B-8140-DC8102290BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Mono.Test", "NzbDrone.Mono.Test\Gamearr.Mono.Test.csproj", "{CCE9ABBC-96BA-425B-8140-DC8102290BE3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Mono", "NzbDrone.Mono\Radarr.Mono.csproj", "{504CD0A8-523B-4A0E-99BE-C179DECA9B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Mono", "NzbDrone.Mono\Gamearr.Mono.csproj", "{504CD0A8-523B-4A0E-99BE-C179DECA9B76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.SignalR", "NzbDrone.SignalR\Radarr.SignalR.csproj", "{B30BE76E-4D20-47AA-9E03-E32613D888CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.SignalR", "NzbDrone.SignalR\Gamearr.SignalR.csproj", "{B30BE76E-4D20-47AA-9E03-E32613D888CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Test.Common", "NzbDrone.Test.Common\Radarr.Test.Common.csproj", "{B8706292-5BE8-4099-94CA-F26DDD3757E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Test.Common", "NzbDrone.Test.Common\Gamearr.Test.Common.csproj", "{B8706292-5BE8-4099-94CA-F26DDD3757E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Test.Dummy", "NzbDrone.Test.Dummy\Radarr.Test.Dummy.csproj", "{AFA7F48E-DB81-4E39-843B-78715C6ADF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Test.Dummy", "NzbDrone.Test.Dummy\Gamearr.Test.Dummy.csproj", "{AFA7F48E-DB81-4E39-843B-78715C6ADF0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Update.Test", "NzbDrone.Update.Test\Radarr.Update.Test.csproj", "{A76441EE-AB2E-4E9D-8CD3-58BE5A8514D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Update.Test", "NzbDrone.Update.Test\Gamearr.Update.Test.csproj", "{A76441EE-AB2E-4E9D-8CD3-58BE5A8514D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Update", "NzbDrone.Update\Radarr.Update.csproj", "{4FBA2CBC-B022-41D6-B6DA-3166991B9172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Update", "NzbDrone.Update\Gamearr.Update.csproj", "{4FBA2CBC-B022-41D6-B6DA-3166991B9172}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Windows.Test", "NzbDrone.Windows.Test\Radarr.Windows.Test.csproj", "{7BEDCC1E-0763-4553-B32B-0430B334ACBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Windows.Test", "NzbDrone.Windows.Test\Gamearr.Windows.Test.csproj", "{7BEDCC1E-0763-4553-B32B-0430B334ACBB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr.Windows", "NzbDrone.Windows\Radarr.Windows.csproj", "{3F076242-A6FA-4657-8606-AF1D150367FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr.Windows", "NzbDrone.Windows\Gamearr.Windows.csproj", "{3F076242-A6FA-4657-8606-AF1D150367FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radarr", "NzbDrone\Radarr.csproj", "{0DC43D36-6680-4237-BE39-D5D094DBCE29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamearr", "NzbDrone\Gamearr.csproj", "{0DC43D36-6680-4237-BE39-D5D094DBCE29}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceInstall", "ServiceHelpers\ServiceInstall\ServiceInstall.csproj", "{7DA231E8-A31D-4F53-8760-820861B6CE65}"
 EndProject

@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NzbDrone.Core\Radarr.Core.csproj" />
-    <ProjectReference Include="..\NzbDrone.Common\Radarr.Common.csproj" />
+    <ProjectReference Include="..\NzbDrone.Core\Gamearr.Core.csproj" />
+    <ProjectReference Include="..\NzbDrone.Common\Gamearr.Common.csproj" />
   </ItemGroup>
 </Project>

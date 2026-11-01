@@ -3,9 +3,9 @@
     <TargetFrameworks>net10.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NzbDrone.Common.Test\Radarr.Common.Test.csproj" />
-    <ProjectReference Include="..\NzbDrone.Test.Common\Radarr.Test.Common.csproj" />
-    <ProjectReference Include="..\NzbDrone.Mono\Radarr.Mono.csproj" />
+    <ProjectReference Include="..\NzbDrone.Common.Test\Gamearr.Common.Test.csproj" />
+    <ProjectReference Include="..\NzbDrone.Test.Common\Gamearr.Test.Common.csproj" />
+    <ProjectReference Include="..\NzbDrone.Mono\Gamearr.Mono.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Files\**\*.*">

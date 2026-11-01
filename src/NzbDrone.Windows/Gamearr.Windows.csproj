@@ -8,6 +8,6 @@
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NzbDrone.Common\Radarr.Common.csproj" />
+    <ProjectReference Include="..\NzbDrone.Common\Gamearr.Common.csproj" />
   </ItemGroup>
 </Project>

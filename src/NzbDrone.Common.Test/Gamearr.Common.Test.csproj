@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NzbDrone.Host\Gamearr.Host.csproj" />
+    <ProjectReference Include="..\NzbDrone.Test.Common\Gamearr.Test.Common.csproj" />
+    <ProjectReference Include="..\NzbDrone.Test.Dummy\Gamearr.Test.Dummy.csproj" />
+  </ItemGroup>
+</Project>
