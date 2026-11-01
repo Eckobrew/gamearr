@@ -8,31 +8,53 @@ namespace NzbDrone.Core.Indexers.Newznab
     {
         public static List<FieldSelectOption<int>> GetFieldSelectOptions(List<NewznabCategory> categories)
         {
-            // Categories not relevant for Radarr
-            var ignoreCategories = new[] { 1000, 3000, 4000, 6000, 7000 };
+            // Categories not relevant for Gamearr (ignore Movies, TV, Audio, Books)
+            var ignoreCategories = new[] { 2000, 3000, 5000, 6000, 7000 };
 
             // And maybe relevant for specific users
-            var unimportantCategories = new[] { 0, 5000 };
+            var unimportantCategories = new[] { 0 };
 
             var result = new List<FieldSelectOption<int>>();
 
             if (categories == null)
             {
-                // Fetching categories failed, use default Newznab categories
+                // Fetching categories failed, use default Newznab categories for games
                 categories = new List<NewznabCategory>();
                 categories.Add(new NewznabCategory
                 {
-                    Id = 2000,
-                    Name = "Movies",
+                    Id = 1000,
+                    Name = "Console Games",
                     Subcategories = new List<NewznabCategory>
                     {
-                        new NewznabCategory { Id = 2010, Name = "Foreign" },
-                        new NewznabCategory { Id = 2020, Name = "Other" },
-                        new NewznabCategory { Id = 2030, Name = "SD" },
-                        new NewznabCategory { Id = 2040, Name = "HD" },
-                        new NewznabCategory { Id = 2045, Name = "UHD" },
-                        new NewznabCategory { Id = 2050, Name = "BluRay" },
-                        new NewznabCategory { Id = 2060, Name = "3D" }
+                        new NewznabCategory { Id = 1010, Name = "NDS" },
+                        new NewznabCategory { Id = 1020, Name = "PSP" },
+                        new NewznabCategory { Id = 1030, Name = "Wii" },
+                        new NewznabCategory { Id = 1040, Name = "Xbox" },
+                        new NewznabCategory { Id = 1050, Name = "Xbox 360" },
+                        new NewznabCategory { Id = 1060, Name = "WiiWare/VC" },
+                        new NewznabCategory { Id = 1070, Name = "XBLA" },
+                        new NewznabCategory { Id = 1080, Name = "PS3" },
+                        new NewznabCategory { Id = 1090, Name = "Other Console" },
+                        new NewznabCategory { Id = 1110, Name = "3DS" },
+                        new NewznabCategory { Id = 1120, Name = "PS Vita" },
+                        new NewznabCategory { Id = 1130, Name = "Wii U" },
+                        new NewznabCategory { Id = 1140, Name = "Xbox One" },
+                        new NewznabCategory { Id = 1150, Name = "PS4" },
+                        new NewznabCategory { Id = 1180, Name = "Switch" }
+                    }
+                });
+                categories.Add(new NewznabCategory
+                {
+                    Id = 4000,
+                    Name = "PC Games",
+                    Subcategories = new List<NewznabCategory>
+                    {
+                        new NewznabCategory { Id = 4010, Name = "0day" },
+                        new NewznabCategory { Id = 4020, Name = "ISO" },
+                        new NewznabCategory { Id = 4030, Name = "Mac" },
+                        new NewznabCategory { Id = 4040, Name = "Mobile" },
+                        new NewznabCategory { Id = 4050, Name = "Games" },
+                        new NewznabCategory { Id = 4060, Name = "DLC" }
                     }
                 });
             }

@@ -79,6 +79,16 @@ namespace NzbDrone.Core.Qualities
         // Unable to determine
         public static Quality Unknown => new Quality(0, "Unknown", QualitySource.UNKNOWN, 0);
 
+        // Game Qualities
+        public static Quality Scene => new Quality(101, "Scene", QualitySource.SCENE, 0);
+        public static Quality GOG => new Quality(102, "GOG / DRM-Free", QualitySource.GOG, 0);
+        public static Quality Repack => new Quality(103, "Repack", QualitySource.REPACK, 0);
+        public static Quality RetailDisc => new Quality(104, "Retail / ISO", QualitySource.RETAIL_DISC, 0);
+        public static Quality Portable => new Quality(105, "Portable / Unpacked", QualitySource.PORTABLE, 0);
+        public static Quality EarlyAccess => new Quality(106, "Early Access", QualitySource.EARLY_ACCESS, 0);
+        public static Quality UpdatePatch => new Quality(107, "Update / Patch", QualitySource.UPDATE_PATCH, 0);
+        public static Quality DLC => new Quality(108, "DLC / Expansion", QualitySource.DLC, 0);
+
         // Pre-release
         public static Quality WORKPRINT => new Quality(24, "WORKPRINT", QualitySource.WORKPRINT, 0); // new
         public static Quality CAM => new Quality(25, "CAM", QualitySource.CAM, 0); // new
@@ -128,6 +138,14 @@ namespace NzbDrone.Core.Qualities
             All = new List<Quality>
             {
                 Unknown,
+                Scene,
+                GOG,
+                Repack,
+                RetailDisc,
+                Portable,
+                EarlyAccess,
+                UpdatePatch,
+                DLC,
                 WORKPRINT,
                 CAM,
                 TELESYNC,
@@ -201,7 +219,17 @@ namespace NzbDrone.Core.Qualities
                 new QualityDefinition(Quality.Remux2160p)  { Weight = 24, MinSize = 0, MaxSize = null, PreferredSize = null },
 
                 new QualityDefinition(Quality.BRDISK)      { Weight = 25, MinSize = 0, MaxSize = null, PreferredSize = null },
-                new QualityDefinition(Quality.RAWHD)       { Weight = 26, MinSize = 0, MaxSize = null, PreferredSize = null }
+                new QualityDefinition(Quality.RAWHD)       { Weight = 26, MinSize = 0, MaxSize = null, PreferredSize = null },
+
+                // Game Qualities
+                new QualityDefinition(Quality.EarlyAccess) { Weight = 30, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.Portable)    { Weight = 31, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.Repack)      { Weight = 32, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.RetailDisc)  { Weight = 33, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.Scene)       { Weight = 34, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.GOG)         { Weight = 35, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.UpdatePatch) { Weight = 36, MinSize = 0, MaxSize = null, PreferredSize = null },
+                new QualityDefinition(Quality.DLC)         { Weight = 37, MinSize = 0, MaxSize = null, PreferredSize = null }
             };
         }
 
