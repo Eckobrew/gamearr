@@ -17,11 +17,11 @@ ProgressEnd()
 
 UpdateVersionNumber()
 {
-    if [ "$RADARRVERSION" != "" ]; then
+    if [ "$GAMEARRVERSION" != "" ]; then
         echo "Updating Version Info"
-        sed -i'' -e "s/<AssemblyVersion>[0-9.*]\+<\/AssemblyVersion>/<AssemblyVersion>$RADARRVERSION<\/AssemblyVersion>/g" src/Directory.Build.props
+        sed -i'' -e "s/<AssemblyVersion>[0-9.*]\+<\/AssemblyVersion>/<AssemblyVersion>$GAMEARRVERSION<\/AssemblyVersion>/g" src/Directory.Build.props
         sed -i'' -e "s/<AssemblyConfiguration>[\$()A-Za-z-]\+<\/AssemblyConfiguration>/<AssemblyConfiguration>${BUILD_SOURCEBRANCHNAME}<\/AssemblyConfiguration>/g" src/Directory.Build.props
-        sed -i'' -e "s/<string>10.0.0.0<\/string>/<string>$RADARRVERSION<\/string>/g" distribution/osx/Radarr.app/Contents/Info.plist
+        sed -i'' -e "s/<string>10.0.0.0<\/string>/<string>$GAMEARRVERSION<\/string>/g" distribution/osx/Gamearr.app/Contents/Info.plist
     fi
 }
 
@@ -66,7 +66,7 @@ Build()
     rm -rf $outputFolder
     rm -rf $testPackageFolder
 
-    slnFile=src/Radarr.sln
+    slnFile=src/Gamearr.sln
 
     if [ $os = "windows" ]; then
         platform=Windows
@@ -110,7 +110,7 @@ PackageFiles()
     rm -rf $folder
     mkdir -p $folder
     cp -r $outputFolder/$framework/$runtime/publish/* $folder
-    cp -r $outputFolder/Radarr.Update/$framework/$runtime/publish $folder/Radarr.Update
+    cp -r $outputFolder/Gamearr.Update/$framework/$runtime/publish $folder/Gamearr.Update
     cp -r $outputFolder/UI $folder
 
     echo "Adding LICENSE"
@@ -124,7 +124,7 @@ PackageLinux()
 
     ProgressStart "Creating $runtime Package for $framework"
 
-    local folder=$artifactsFolder/$runtime/$framework/Radarr
+    local folder=$artifactsFolder/$runtime/$framework/Gamearr
 
     PackageFiles "$folder" "$framework" "$runtime"
 
@@ -132,14 +132,14 @@ PackageLinux()
     rm -f $folder/ServiceUninstall.*
     rm -f $folder/ServiceInstall.*
 
-    echo "Removing Radarr.Windows"
-    rm $folder/Radarr.Windows.*
+    echo "Removing Gamearr.Windows"
+    rm $folder/Gamearr.Windows.*
 
-    echo "Adding Radarr.Mono to UpdatePackage"
-    cp $folder/Radarr.Mono.* $folder/Radarr.Update
+    echo "Adding Gamearr.Mono to UpdatePackage"
+    cp $folder/Gamearr.Mono.* $folder/Gamearr.Update
     if [ "$framework" = "net10.0" ]; then
-        cp $folder/Openur.Mono.Unix.* $folder/Radarr.Update
-        cp $folder/libMono.Unix.* $folder/Radarr.Update
+        cp $folder/Openur.Mono.Unix.* $folder/Gamearr.Update
+        cp $folder/libMono.Unix.* $folder/Gamearr.Update
     fi
 
     ProgressEnd "Creating $runtime Package for $framework"
@@ -152,7 +152,7 @@ PackageMacOS()
 
     ProgressStart "Creating MacOS Package for $framework $runtime"
 
-    local folder=$artifactsFolder/$runtime/$framework/Radarr
+    local folder=$artifactsFolder/$runtime/$framework/Gamearr
 
     PackageFiles "$folder" "$framework" "$runtime"
 
@@ -160,14 +160,14 @@ PackageMacOS()
     rm -f $folder/ServiceUninstall.*
     rm -f $folder/ServiceInstall.*
 
-    echo "Removing Radarr.Windows"
-    rm $folder/Radarr.Windows.*
+    echo "Removing Gamearr.Windows"
+    rm $folder/Gamearr.Windows.*
 
-    echo "Adding Radarr.Mono to UpdatePackage"
-    cp $folder/Radarr.Mono.* $folder/Radarr.Update
+    echo "Adding Gamearr.Mono to UpdatePackage"
+    cp $folder/Gamearr.Mono.* $folder/Gamearr.Update
     if [ "$framework" = "net10.0" ]; then
-        cp $folder/Openur.Mono.Unix.* $folder/Radarr.Update
-        cp $folder/libMono.Unix.* $folder/Radarr.Update
+        cp $folder/Openur.Mono.Unix.* $folder/Gamearr.Update
+        cp $folder/libMono.Unix.* $folder/Gamearr.Update
     fi
 
     ProgressEnd 'Creating MacOS Package'
@@ -184,14 +184,14 @@ PackageMacOSApp()
 
     rm -rf $folder
     mkdir -p $folder
-    cp -r distribution/osx/Radarr.app $folder
-    mkdir -p $folder/Radarr.app/Contents/MacOS
+    cp -r distribution/osx/Gamearr.app $folder
+    mkdir -p $folder/Gamearr.app/Contents/MacOS
 
     echo "Copying Binaries"
-    cp -r $artifactsFolder/$runtime/$framework/Radarr/* $folder/Radarr.app/Contents/MacOS
+    cp -r $artifactsFolder/$runtime/$framework/Gamearr/* $folder/Gamearr.app/Contents/MacOS
 
     echo "Removing Update Folder"
-    rm -r $folder/Radarr.app/Contents/MacOS/Radarr.Update
+    rm -r $folder/Gamearr.app/Contents/MacOS/Gamearr.Update
 
     ProgressEnd 'Creating macOS App Package'
 }
@@ -203,18 +203,18 @@ PackageWindows()
 
     ProgressStart "Creating Windows Package for $framework"
 
-    local folder=$artifactsFolder/$runtime/$framework/Radarr
+    local folder=$artifactsFolder/$runtime/$framework/Gamearr
 
     PackageFiles "$folder" "$framework" "$runtime"
     cp -r $outputFolder/$framework-windows/$runtime/publish/* $folder
 
-    echo "Removing Radarr.Mono"
-    rm -f $folder/Radarr.Mono.*
+    echo "Removing Gamearr.Mono"
+    rm -f $folder/Gamearr.Mono.*
     rm -f $folder/Openur.Mono.Unix.*
     rm -f $folder/libMono.Unix.*
 
-    echo "Adding Radarr.Windows to UpdatePackage"
-    cp $folder/Radarr.Windows.* $folder/Radarr.Update
+    echo "Adding Gamearr.Windows to UpdatePackage"
+    cp $folder/Gamearr.Windows.* $folder/Gamearr.Update
 
     ProgressEnd 'Creating Windows Package'
 }

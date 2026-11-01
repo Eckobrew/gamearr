@@ -1,90 +1,120 @@
-# Radarr
+# Gamearr — Video Game PVR & Collection Manager
 
-[![Build Status](https://dev.azure.com/Radarr/Radarr/_apis/build/status/Radarr.Radarr?branchName=develop)](https://dev.azure.com/Radarr/Radarr/_build/latest?definitionId=1&branchName=develop)
-[![Translation status](https://translate.servarr.com/widget/servarr/radarr/svg-badge.svg)](https://translate.servarr.com/engage/servarr/?utm_source=widget)
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/radarr.svg)](https://wiki.servarr.com/radarr/installation/docker)
-![Github Downloads](https://img.shields.io/github/downloads/Radarr/Radarr/total.svg)
-[![Backers on Open Collective](https://opencollective.com/Radarr/backers/badge.svg)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/Radarr/sponsors/badge.svg)](#sponsors)
-[![Mega Sponsors on Open Collective](https://opencollective.com/Radarr/megasponsors/badge.svg)](#mega-sponsors)
+[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](docker-compose.yml)
 
-Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.
-Note that only one type of a given movie is supported. If you want both a 4k version and 1080p version of a given movie you will need multiple instances.
+**Gamearr** is an `*arr`-style automated PVR and game library manager for Usenet and BitTorrent users, forked and adapted from Radarr. It monitors RSS feeds and indexers for wanted PC and console games, interfaces with download clients (like qBittorrent), and organizes, renames, and manages your game collection.
 
-## Major Features Include
+---
 
-* Adding new movies with lots of information, such as trailers, ratings, etc.
-* Support for major platforms: Windows, Linux, macOS, Raspberry Pi, etc.
-* Can watch for better quality of the movies you have and do an automatic upgrade. _eg. from DVD to Blu-Ray_
-* Automatic failed download handling will try another release if one fails
-* Manual search so you can pick any release or to see why a release was not downloaded automatically
-* Full integration with SABnzbd and NZBGet
-* Automatically searching for releases as well as RSS Sync
-* Automatically importing downloaded movies
-* Recognizing Special Editions, Director's Cut, etc.
-* Identifying releases with hardcoded subs
-* Identifying releases with AKA movie names
-* SABnzbd, NZBGet, QBittorrent, Deluge, rTorrent, Transmission, uTorrent, and other download clients are supported and integrated
-* Full integration with Kodi and Plex (notifications, library updates)
-* Importing Metadata such as trailers or subtitles
-* Adding metadata such as posters and information for Kodi and others to use
-* Advanced customization for profiles, such that Radarr will always download the copy you want
-* A beautiful UI
+## 🎮 Why Gamearr?
 
-## Support
+While Radarr manages movies and Sonarr manages TV episodes, **video games require an entirely different domain model**:
 
-[![Wiki](https://img.shields.io/badge/servarr-wiki-181717.svg?maxAge=60)](https://wiki.servarr.com/radarr)
-[![Discord](https://img.shields.io/badge/discord-chat-7289DA.svg?maxAge=60)](https://radarr.video/discord)
+* **Game-Native Quality Profiles**: Instead of video resolutions (1080p, 4K, Remux), Gamearr understands game releases:
+  * **Scene** (standard scene ISO/installers by CODEX, FLT, RUNE, SKIDROW, etc.)
+  * **GOG / DRM-Free** (official DRM-free standalone installers)
+  * **Repack** (compressed repacks by FitGirl, DODI, ElAmigos)
+  * **Retail / ISO** (1:1 disc image dumps)
+  * **Portable / Unpacked** (pre-installed, direct-play folders)
+  * **Early Access / Beta**
+* **Game Component Tracking**: Games are not single static files. Gamearr tracks:
+  * **Base Game**
+  * **Versioned Updates & Patches** (e.g. `v1.0.4`, `Hotfix 2`)
+  * **DLCs & Expansions**
+* **Indexer Game Categories**:
+  * Default Newznab & Torznab categories mapped to **PC Games (`4000`)** and **Console Games (`1000`)** instead of video/audio categories.
+* **Gaming Metadata Providers**:
+  * Metadata discovery designed for **IGDB**, **Steam**, and **RAWG** instead of TMDb/TVDb.
 
-Note: GitHub Issues are for Bugs and Feature Requests Only
+---
 
-[![GitHub - Bugs and Feature Requests Only](https://img.shields.io/badge/github-issues-red.svg?maxAge=60)](https://github.com/Radarr/Radarr/issues)
+## 🚀 Getting Started
 
-## Contributors & Developers
+### Using Docker (Recommended)
 
-[API Documentation](https://radarr.video/docs/api/)
+1. Create a `docker-compose.yml` file:
 
-This project exists thanks to all the people who contribute.
-- [Contribute (GitHub)](CONTRIBUTING.md)
-- [Contribution (Wiki Article)](https://wiki.servarr.com/radarr/contributing)
+```yaml
+services:
+  gamearr:
+    image: gamearr:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gamearr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./config:/config
+      - /path/to/games:/games
+      - /path/to/downloads:/downloads
+    ports:
+      - "8484:8484"
+    restart: unless-stopped
+```
 
-[![Contributors List](https://opencollective.com/Radarr/contributors.svg?width=890&button=false)](https://github.com/Radarr/Radarr/graphs/contributors)
+2. Start the container:
 
-## Backers
+```bash
+docker compose up -d
+```
 
-Thank you to all our backers! 🙏 [Become a backer](https://opencollective.com/Radarr#backer)
+3. Open **`http://localhost:8484`** in your browser.
 
-[![Backers List](https://opencollective.com/Radarr/backers.svg?width=890)](https://opencollective.com/Radarr#backer)
+---
 
-## Sponsors
+## 🛠️ Architecture & Solution Structure
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [Become a sponsor](https://opencollective.com/Radarr#sponsor)
+Gamearr retains the robust, proven `*arr` architecture while pivoting the domain logic:
 
-[![Sponsors List](https://opencollective.com/Radarr/sponsors.svg?width=890)](https://opencollective.com/Radarr#sponsor)
+```
+src/
+├── Gamearr.sln                  # Master .NET Solution
+├── Gamearr.Api.V3/              # REST API v3 controllers & models
+│   └── Games/                   # Game & GameLookup API controllers
+├── Gamearr.Http/                # Web host, HTTP pipeline, & authentication
+├── NzbDrone.Core/               # Core business logic & database layer
+│   ├── Games/                   # Game, GameFile, GameMetadata domain models
+│   ├── Qualities/               # Game qualities (Scene, GOG, Repack, ISO, etc.)
+│   ├── Indexers/                # Newznab / Torznab game categories
+│   ├── Download/                # Download clients (qBittorrent, Deluge, Transmission, etc.)
+│   └── Organizer/               # Game folder & file naming conventions
+└── frontend/                    # Modern React / TypeScript UI
+    └── src/
+        ├── App/AppRoutes.tsx    # Routes including /games and /game/:titleSlug
+        └── typings/Game.ts      # TypeScript interfaces for Games & Components
+```
 
-## Mega Sponsors
+---
 
-[![Mega Sponsors List](https://opencollective.com/Radarr/tiers/mega-sponsor.svg?width=890)](https://opencollective.com/Radarr#mega-sponsor)
+## 🔧 Building from Source
 
-## JetBrains
+### Prerequisites
+* [.NET 8.0 SDK](https://dotnet.microsoft.com/download) or newer
+* [Node.js](https://nodejs.org/) (v18+) and [Yarn](https://yarnpkg.com/)
 
-Thank you to [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.png" alt="JetBrains" width="96">](http://www.jetbrains.com/) for providing us with free licenses to their great tools.
+### 1. Build the Frontend
+```bash
+yarn install
+yarn build
+```
 
-* [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/ReSharper_icon.png" alt="ReSharper" width="32"> ReSharper](http://www.jetbrains.com/resharper/)
-* [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/WebStorm_icon.png" alt="WebStorm" width="32"> WebStorm](http://www.jetbrains.com/webstorm/)
-* [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/Rider_icon.png" alt="Rider" width="32"> Rider](http://www.jetbrains.com/rider/)
-* [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/dotTrace_icon.png" alt="dotTrace" width="32"> dotTrace](http://www.jetbrains.com/dottrace/)
+### 2. Build the Backend
+```bash
+dotnet restore src/Gamearr.sln
+dotnet build src/Gamearr.sln -c Release
+```
 
-## DigitalOcean
+### 3. Run Gamearr
+```bash
+dotnet run --project src/NzbDrone/Gamearr.csproj
+```
 
-This project is also supported by DigitalOcean
-<p>
-  <a href="https://www.digitalocean.com/">
-    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_blue.svg" width="201px">
-  </a>
-</p>
+---
 
-### License
-
-* [GNU GPL v3](http://www.gnu.org/licenses/gpl.html)
-* Copyright 2010-2025
+## 📄 License
+Gamearr is open-source software licensed under the **GNU General Public License v3.0 (GPL-3.0)**, preserving the license of its upstream foundations.
